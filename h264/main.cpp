@@ -39,14 +39,14 @@ typedef struct
 
 typedef unsigned char u1;
 
-static int find_code2(u1 *buffer)
+static bool find_code2(u1 *buffer)
 {
-    return (buffer[0] != 0 || buffer[1] != 0 || buffer[2] != 1);
+    return buffer[0] == 0 && buffer[1] == 0 && buffer[2] == 1;
 }
 
-static int find_code3(u1 *buffer)
+static bool find_code3(u1 *buffer)
 {
-    return (buffer[0] != 0 || buffer[1] != 0 || buffer[2] != 0 || buffer[3] != 1);
+    return buffer[0] == 0 && buffer[1] == 0 && buffer[2] == 0 && buffer[3] == 1;
 }
 
 int get_annexb_NALU(NALU_t *nalu)
@@ -59,7 +59,6 @@ int get_annexb_NALU(NALU_t *nalu)
     {
         nalu->startcodeprefix_len = 3;
         pos = 3;
-
         goto find_end;
     }
 
@@ -79,7 +78,7 @@ find_end:
     int rewind = 0;
     while (1)
     {
-        if (!feof(h264))
+        if (feof(h264))
         {
             nalu->len = (pos - 1) - nalu->startcodeprefix_len;
             memcpy(nalu->buffer, &buffer[nalu->startcodeprefix_len], nalu->len);
@@ -119,12 +118,11 @@ int main(int argc, char *argv[])
 {
     h264 = fopen("/Users/chan/Documents/github/learn-video/media/sintel.h264", "rb");
     printf("-----+-------- NALU Table ------+---------+\n");
-    printf(" NUM |    POS  |    IDC |  TYPE |   LEN   |\n");
-    printf("-----+---------+--------+-------+---------+\n");
-
+	printf("| NUM |    POS  |    IDC |  TYPE |   LEN   |\n");
+	printf("-----+---------+--------+-------+---------+\n");
     NALU_t nalu;
     nalu.max_size = 100000;
-    nalu.buffer = (char *)calloc(nalu.max_size, 1);
+    nalu.buffer = (char *)malloc(nalu.max_size);
     int data_offset = 0;
     int nal_num = 0;
 
