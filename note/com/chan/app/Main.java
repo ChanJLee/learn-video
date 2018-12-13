@@ -24,4 +24,8 @@ public class Main {
             System.out.println("exception");
         }
     }
+
+    public <T> void echo(T o) {
+        System.out.println(o);
+    }
 }
