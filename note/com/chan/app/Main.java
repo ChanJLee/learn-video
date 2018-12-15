@@ -1,5 +1,7 @@
 package com.chan.app;
 
+import java.util.List;
+
 public class Main {
     public static final String TAG = "Main";
     public static final int ID = 0xf0c0;
@@ -25,7 +27,8 @@ public class Main {
         }
     }
 
-    public <T> void echo(T o) {
+    @Deprecated
+    public <T> void echo(T o, List<?> list, List<? extends Main> list2) {
         System.out.println(o);
     }
 }
