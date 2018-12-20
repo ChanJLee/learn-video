@@ -31,4 +31,10 @@ public class Main {
     public <T> void echo(T o, List<?> list, List<? extends Main> list2) {
         System.out.println(o);
     }
+
+    public void echo(String... args) {
+        for (int i = 0; args != null && i < args.length; ++i) {
+            System.out.println(args[i]);
+        }
+    }
 }
