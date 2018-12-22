@@ -11,17 +11,19 @@ public class Main {
 
     public static void main(String args[]) {
         System.out.println("hello world");
+        foo();
+        hugo();
     }
 
-    private void foo() {
+    private static void foo() {
         for (int i = 0; i < 10; ++i) {
             System.out.println("hello");
         }
     }
 
-    private void hugo() {
+    private static void hugo(String... args) {
         try {
-            System.out.println("hugo");
+            System.out.println(args);
         } catch(Exception e) {
             System.out.println("exception");
         }
