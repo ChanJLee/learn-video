@@ -1,51 +1,55 @@
 Classfile /Users/chan/Documents/github/learn-video/note/com/chan/app/Person.class
-  Last modified 2018-12-20; size 641 bytes
-  MD5 checksum b1d2095070c8ffa0f97528b076d99cb4
+  Last modified 2018-12-24; size 756 bytes
+  MD5 checksum 06bc377150a53caf08e971c8ecdc8151
   Compiled from "Person.java"
 public class com.chan.app.Person
   minor version: 0
   major version: 52
   flags: ACC_PUBLIC, ACC_SUPER
 Constant pool:
-   #1 = Methodref          #8.#20         // java/lang/Object."<init>":()V
-   #2 = Methodref          #21.#22        // java/lang/Integer.parseInt:(Ljava/lang/String;)I
-   #3 = Fieldref           #23.#24        // java/lang/System.out:Ljava/io/PrintStream;
-   #4 = String             #25            // age end
-   #5 = Methodref          #26.#27        // java/io/PrintStream.println:(Ljava/lang/String;)V
-   #6 = Class              #28            // java/lang/Exception
-   #7 = Class              #29            // com/chan/app/Person
-   #8 = Class              #30            // java/lang/Object
-   #9 = Utf8               <init>
-  #10 = Utf8               ()V
-  #11 = Utf8               Code
-  #12 = Utf8               LineNumberTable
-  #13 = Utf8               age
-  #14 = Utf8               (Ljava/lang/String;)I
-  #15 = Utf8               StackMapTable
-  #16 = Class              #28            // java/lang/Exception
-  #17 = Class              #31            // java/lang/Throwable
-  #18 = Utf8               SourceFile
-  #19 = Utf8               Person.java
-  #20 = NameAndType        #9:#10         // "<init>":()V
-  #21 = Class              #32            // java/lang/Integer
-  #22 = NameAndType        #33:#14        // parseInt:(Ljava/lang/String;)I
-  #23 = Class              #34            // java/lang/System
-  #24 = NameAndType        #35:#36        // out:Ljava/io/PrintStream;
-  #25 = Utf8               age end
-  #26 = Class              #37            // java/io/PrintStream
-  #27 = NameAndType        #38:#39        // println:(Ljava/lang/String;)V
-  #28 = Utf8               java/lang/Exception
-  #29 = Utf8               com/chan/app/Person
-  #30 = Utf8               java/lang/Object
-  #31 = Utf8               java/lang/Throwable
-  #32 = Utf8               java/lang/Integer
-  #33 = Utf8               parseInt
-  #34 = Utf8               java/lang/System
-  #35 = Utf8               out
-  #36 = Utf8               Ljava/io/PrintStream;
-  #37 = Utf8               java/io/PrintStream
-  #38 = Utf8               println
-  #39 = Utf8               (Ljava/lang/String;)V
+   #1 = Methodref          #9.#23         // java/lang/Object."<init>":()V
+   #2 = Methodref          #24.#25        // java/lang/Integer.parseInt:(Ljava/lang/String;)I
+   #3 = Fieldref           #26.#27        // java/lang/System.out:Ljava/io/PrintStream;
+   #4 = String             #28            // age end
+   #5 = Methodref          #29.#30        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #6 = Class              #31            // java/lang/Exception
+   #7 = String             #32            // hello
+   #8 = Class              #33            // com/chan/app/Person
+   #9 = Class              #34            // java/lang/Object
+  #10 = Utf8               <init>
+  #11 = Utf8               ()V
+  #12 = Utf8               Code
+  #13 = Utf8               LineNumberTable
+  #14 = Utf8               age
+  #15 = Utf8               (Ljava/lang/String;)I
+  #16 = Utf8               StackMapTable
+  #17 = Class              #31            // java/lang/Exception
+  #18 = Class              #35            // java/lang/Throwable
+  #19 = Utf8               foo
+  #20 = Utf8               (IF)I
+  #21 = Utf8               SourceFile
+  #22 = Utf8               Person.java
+  #23 = NameAndType        #10:#11        // "<init>":()V
+  #24 = Class              #36            // java/lang/Integer
+  #25 = NameAndType        #37:#15        // parseInt:(Ljava/lang/String;)I
+  #26 = Class              #38            // java/lang/System
+  #27 = NameAndType        #39:#40        // out:Ljava/io/PrintStream;
+  #28 = Utf8               age end
+  #29 = Class              #41            // java/io/PrintStream
+  #30 = NameAndType        #42:#43        // println:(Ljava/lang/String;)V
+  #31 = Utf8               java/lang/Exception
+  #32 = Utf8               hello
+  #33 = Utf8               com/chan/app/Person
+  #34 = Utf8               java/lang/Object
+  #35 = Utf8               java/lang/Throwable
+  #36 = Utf8               java/lang/Integer
+  #37 = Utf8               parseInt
+  #38 = Utf8               java/lang/System
+  #39 = Utf8               out
+  #40 = Utf8               Ljava/io/PrintStream;
+  #41 = Utf8               java/io/PrintStream
+  #42 = Utf8               println
+  #43 = Utf8               (Ljava/lang/String;)V
 {
   public com.chan.app.Person();
     descriptor: ()V
@@ -105,5 +109,34 @@ Constant pool:
           stack = [ class java/lang/Exception ]
         frame_type = 76 /* same_locals_1_stack_item */
           stack = [ class java/lang/Throwable ]
+
+  public int foo(int, float);
+    descriptor: (IF)I
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=3, args_size=3
+         0: iload_1
+         1: bipush        10
+         3: if_icmpge     16
+         6: fload_2
+         7: fconst_2
+         8: fmul
+         9: fstore_2
+        10: iinc          1, 1
+        13: goto          0
+        16: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        19: ldc           #7                  // String hello
+        21: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        24: iconst_0
+        25: ireturn
+      LineNumberTable:
+        line 16: 0
+        line 17: 6
+        line 16: 10
+        line 20: 16
+        line 21: 24
+      StackMapTable: number_of_entries = 2
+        frame_type = 0 /* same */
+        frame_type = 15 /* same */
 }
 SourceFile: "Person.java"

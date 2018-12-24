@@ -11,4 +11,13 @@ public class Person {
             System.out.println("age end");
         }
     }
+
+    public int foo(int arg1, float arg2) {
+        for (; arg1 < 10; ++arg1) {
+            arg2 *= 2;
+        }
+
+        System.out.println("hello");
+        return 0;
+    }
 }
