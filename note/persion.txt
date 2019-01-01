@@ -139,5 +139,4 @@ Constant pool:
         frame_type = 0 /* same */
         frame_type = 15 /* same */
 }
-
 SourceFile: "Person.java"
