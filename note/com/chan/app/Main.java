@@ -1,17 +1,8 @@
-package com.chan.app;
-
-import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 public class Main {
-    public static final String TAG = "Main";
-    public static final int ID = 0xf0c0;
-
-    private int mId = 10;
-    private String mName = "jack";
-
     private static void testFeature() {
         FutureTask<Integer> task = new FutureTask<Integer>(new Callable<Integer>() {
             @Override
@@ -63,34 +54,26 @@ public class Main {
         }
         thread.interrupt();
     }
-    public static void main(String args[]) {
-        System.out.println("hello world");
-        foo();
-        hugo();
-    }
 
-    private static void foo() {
-        for (int i = 0; i < 10; ++i) {
-            System.out.println("hello");
+    private static void testSemaphore() {
+        final CountingSemaphoreBuffer countingSemaphoreBuffer = new CountingSemaphoreBuffer(10);
+        for (int i = 0; i < 20; ++i) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        countingSemaphoreBuffer.add(new Person("fuck"));
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
         }
     }
 
-    private static void hugo(String... args) {
-        try {
-            System.out.println(args);
-        } catch(Exception e) {
-            System.out.println("exception");
-        }
-    }
-
-    @Deprecated
-    public <T> void echo(T o, List<?> list, List<? extends Main> list2) {
-        System.out.println(o);
-    }
-
-    public void echo(String... args) {
-        for (int i = 0; args != null && i < args.length; ++i) {
-            System.out.println(args[i]);
-        }
+    public static void main(String[] args) {
+        //testFeature();
+        //testInterrupt();
+        testSemaphore();
     }
 }
