@@ -71,9 +71,23 @@ public class Main {
         }
     }
 
+    private static void testInterrupt2() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    int x = 100 * 10;
+                }
+            }
+        });
+        thread.start();
+        thread.interrupt();
+    }
+
     public static void main(String[] args) {
         //testFeature();
         //testInterrupt();
-        testSemaphore();
+//        testSemaphore();
+        testInterrupt2();
     }
 }
