@@ -88,6 +88,7 @@ public class Main {
         //testFeature();
         //testInterrupt();
 //        testSemaphore();
+
         testInterrupt2();
     }
 }
